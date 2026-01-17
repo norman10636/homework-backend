@@ -1,8 +1,24 @@
-README.md
+# Compiled class files
+*.class
+
+# Log files
+*.log
+app.log*
+
+# Maven build directory
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
 
 ### STS ###
 .apt_generated
@@ -31,3 +47,34 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+
+# Database files (if any local DBs)
+*.db
+*.sqlite
+*.sqlite3
+
+# RocketMQ logs
+~/logs/
+rocketmqlogs/
+
+# IDE specific files
+.metadata/
+.recommenders/
