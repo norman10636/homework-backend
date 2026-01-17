@@ -9,8 +9,8 @@ import com.example.demo.mq.MessageProducer;
 import com.example.demo.repository.ApiLimitRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,26 +21,17 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
+@RequiredArgsConstructor
 public class RateLimitService {
     
-    private static final Logger logger = LoggerFactory.getLogger(RateLimitService.class);
     private static final boolean FAIL_OPEN = true; // Fail-open strategy
     
     private final ApiLimitRepository apiLimitRepository;
     private final RedisService redisService;
     private final ObjectMapper objectMapper;
     private final MessageProducer messageProducer;
-    
-    public RateLimitService(ApiLimitRepository apiLimitRepository, 
-                           RedisService redisService,
-                           ObjectMapper objectMapper,
-                           MessageProducer messageProducer) {
-        this.apiLimitRepository = apiLimitRepository;
-        this.redisService = redisService;
-        this.objectMapper = objectMapper;
-        this.messageProducer = messageProducer;
-    }
     
     @Transactional
     public ApiLimit createLimit(CreateLimitRequest request) {
@@ -52,7 +43,7 @@ public class RateLimitService {
             String configJson = objectMapper.writeValueAsString(savedLimit);
             redisService.cacheApiLimitConfig(request.getApiKey(), configJson);
         } catch (JsonProcessingException e) {
-            logger.warn("Failed to cache configuration for apiKey: {}", request.getApiKey(), e);
+            log.warn("Failed to cache configuration for apiKey: {}", request.getApiKey(), e);
         }
         
         // Send async event
@@ -72,7 +63,7 @@ public class RateLimitService {
             // Execute rate limiting with atomic Lua script
             if (!redisService.isRedisAvailable()) {
                 if (FAIL_OPEN) {
-                    logger.warn("Redis unavailable, allowing request for apiKey: {}", apiKey);
+                    log.warn("Redis unavailable, allowing request for apiKey: {}", apiKey);
                     return new CheckResponse(true, "Rate limiting unavailable - request allowed");
                 } else {
                     return new CheckResponse(false, "Rate limiting service unavailable");
@@ -80,9 +71,12 @@ public class RateLimitService {
             }
             
             Long currentCount = redisService.executeRateLimit(apiKey, config.getWindowSeconds(), config.getLimitCount());
+            log.info("Rate limit check for apiKey: {}, currentCount: {}, limit: {}", 
+                apiKey, currentCount, config.getLimitCount());
+                
             if (currentCount == null) {
                 if (FAIL_OPEN) {
-                    logger.warn("Failed to execute rate limit, allowing request for apiKey: {}", apiKey);
+                    log.warn("Failed to execute rate limit, allowing request for apiKey: {}", apiKey);
                     return new CheckResponse(true, "Rate limiting failed - request allowed");
                 } else {
                     return new CheckResponse(false, "Rate limiting failed");
@@ -91,18 +85,18 @@ public class RateLimitService {
             
             Long ttl = redisService.getTtl(apiKey);
             
-            if (currentCount <= config.getLimitCount()) {
-                return new CheckResponse(true, "Request allowed", 
-                    currentCount.intValue(), config.getLimitCount(), ttl);
-            } else {
+            if (currentCount > config.getLimitCount()) {
                 // Send blocked event async
                 messageProducer.sendBlockedEvent(apiKey, currentCount.intValue(), config.getLimitCount(), ttl);
                 return new CheckResponse(false, "Rate limit exceeded", 
                     currentCount.intValue(), config.getLimitCount(), ttl);
+            } else {
+                return new CheckResponse(true, "Request allowed", 
+                    currentCount.intValue(), config.getLimitCount(), ttl);
             }
             
         } catch (Exception e) {
-            logger.error("Error checking API access for apiKey: {}", apiKey, e);
+            log.error("Error checking API access for apiKey: {}", apiKey, e);
             if (FAIL_OPEN) {
                 return new CheckResponse(true, "Rate limiting error - request allowed");
             } else {
@@ -134,7 +128,7 @@ public class RateLimitService {
                 remaining, ttl, config.getWindowSeconds());
             
         } catch (Exception e) {
-            logger.error("Error getting usage for apiKey: {}", apiKey, e);
+            log.error("Error getting usage for apiKey: {}", apiKey, e);
             throw new RuntimeException("Failed to get usage information");
         }
     }
@@ -184,7 +178,7 @@ public class RateLimitService {
                 return objectMapper.readValue(cachedConfig, ApiLimit.class);
             }
         } catch (Exception e) {
-            logger.warn("Failed to get cached config for apiKey: {}", apiKey, e);
+            log.warn("Failed to get cached config for apiKey: {}", apiKey, e);
         }
         
         // If cache miss, get from database
@@ -196,7 +190,7 @@ public class RateLimitService {
                 String configJson = objectMapper.writeValueAsString(limit);
                 redisService.cacheApiLimitConfig(apiKey, configJson);
             } catch (JsonProcessingException e) {
-                logger.warn("Failed to cache configuration for apiKey: {}", apiKey, e);
+                log.warn("Failed to cache configuration for apiKey: {}", apiKey, e);
             }
             return limit;
         }

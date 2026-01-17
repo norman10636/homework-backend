@@ -3,9 +3,13 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "api_limits")
 public class ApiLimit {
@@ -29,8 +33,6 @@ public class ApiLimit {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
     
-    public ApiLimit() {}
-    
     public ApiLimit(String apiKey, Integer limitCount, Integer windowSeconds) {
         this.apiKey = apiKey;
         this.limitCount = limitCount;
@@ -48,46 +50,5 @@ public class ApiLimit {
     @PreUpdate
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
-    }
-    
-    // Getters and Setters
-    public String getApiKey() {
-        return apiKey;
-    }
-    
-    public void setApiKey(String apiKey) {
-        this.apiKey = apiKey;
-    }
-    
-    public Integer getLimitCount() {
-        return limitCount;
-    }
-    
-    public void setLimitCount(Integer limitCount) {
-        this.limitCount = limitCount;
-    }
-    
-    public Integer getWindowSeconds() {
-        return windowSeconds;
-    }
-    
-    public void setWindowSeconds(Integer windowSeconds) {
-        this.windowSeconds = windowSeconds;
-    }
-    
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-    
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-    
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-    
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
     }
 }

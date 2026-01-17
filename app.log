@@ -1,0 +1,583 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< com.example:demo >--------------------------
+[INFO] Building demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.3:run (default-cli) > test-compile @ demo >>>
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.21.0-GA during dependency collection step for project (use -X to see details)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ demo ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ demo ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 15 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ demo ---
+[INFO] skip non existing resourceDirectory /Users/tangyixin/Desktop/homework/homework-backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ demo ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 17] to target/test-classes
+[WARNING] /Users/tangyixin/Desktop/homework/homework-backend/src/test/java/com/example/demo/controller/RateLimitControllerTest.java:[22,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/tangyixin/Desktop/homework/homework-backend/src/test/java/com/example/demo/controller/RateLimitControllerTest.java:[22,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/tangyixin/Desktop/homework/homework-backend/src/test/java/com/example/demo/controller/RateLimitControllerTest.java:[22,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/tangyixin/Desktop/homework/homework-backend/src/test/java/com/example/demo/controller/RateLimitControllerTest.java:[22,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/tangyixin/Desktop/homework/homework-backend/src/test/java/com/example/demo/controller/RateLimitControllerTest.java:[22,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[INFO] 
+[INFO] <<< spring-boot:3.5.3:run (default-cli) < test-compile @ demo <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.3:run (default-cli) @ demo ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.3)
+
+2026-01-17T22:45:13.682+08:00  INFO 2113 --- [rate-limiter-service] [           main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.10 with PID 2113 (/Users/tangyixin/Desktop/homework/homework-backend/target/classes started by tangyixin in /Users/tangyixin/Desktop/homework/homework-backend)
+2026-01-17T22:45:13.683+08:00 DEBUG 2113 --- [rate-limiter-service] [           main] com.example.demo.DemoApplication         : Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-17T22:45:13.683+08:00  INFO 2113 --- [rate-limiter-service] [           main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-01-17T22:45:13.986+08:00  INFO 2113 --- [rate-limiter-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-17T22:45:13.987+08:00  INFO 2113 --- [rate-limiter-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-17T22:45:14.056+08:00  INFO 2113 --- [rate-limiter-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 1 JPA repository interface.
+2026-01-17T22:45:14.064+08:00  INFO 2113 --- [rate-limiter-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-17T22:45:14.065+08:00  INFO 2113 --- [rate-limiter-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-17T22:45:14.072+08:00  INFO 2113 --- [rate-limiter-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ApiLimitRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-01-17T22:45:14.072+08:00  INFO 2113 --- [rate-limiter-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2026-01-17T22:45:14.343+08:00  INFO 2113 --- [rate-limiter-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-01-17T22:45:14.355+08:00  INFO 2113 --- [rate-limiter-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-17T22:45:14.355+08:00  INFO 2113 --- [rate-limiter-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2026-01-17T22:45:14.391+08:00  INFO 2113 --- [rate-limiter-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-01-17T22:45:14.391+08:00  INFO 2113 --- [rate-limiter-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 691 ms
+2026-01-17T22:45:14.477+08:00  INFO 2113 --- [rate-limiter-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-17T22:45:14.507+08:00  INFO 2113 --- [rate-limiter-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2026-01-17T22:45:14.525+08:00  INFO 2113 --- [rate-limiter-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-01-17T22:45:14.663+08:00  INFO 2113 --- [rate-limiter-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-17T22:45:14.680+08:00  INFO 2113 --- [rate-limiter-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-17T22:45:14.765+08:00  INFO 2113 --- [rate-limiter-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2bcb1414
+2026-01-17T22:45:14.766+08:00  INFO 2113 --- [rate-limiter-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-17T22:45:14.804+08:00  WARN 2113 --- [rate-limiter-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-17T22:45:14.813+08:00  INFO 2113 --- [rate-limiter-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.44
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-17T22:45:15.238+08:00  INFO 2113 --- [rate-limiter-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-17T22:45:15.280+08:00  INFO 2113 --- [rate-limiter-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-17T22:45:16.261+08:00  WARN 2113 --- [rate-limiter-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-17T22:45:16.513+08:00  INFO 2113 --- [rate-limiter-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-01-17T22:45:16.514+08:00 DEBUG 2113 --- [rate-limiter-service] [           main] o.s.d.r.l.RedisMessageListenerContainer  : Starting RedisMessageListenerContainer...
+2026-01-17T22:45:16.515+08:00 DEBUG 2113 --- [rate-limiter-service] [           main] o.s.d.r.l.RedisMessageListenerContainer  : Postpone listening for Redis messages until actual listeners are added
+2026-01-17T22:45:16.520+08:00  INFO 2113 --- [rate-limiter-service] [           main] com.example.demo.DemoApplication         : Started DemoApplication in 3.038 seconds (process running for 3.205)
+2026-01-17T22:45:30.758+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-17T22:45:30.759+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-01-17T22:45:30.773+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2026-01-17T22:45:30.818+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:31.109+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:31.128+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:31.130+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:31.130+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:31.157+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:31.157+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-1] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key, currentCount: 1, limit: 5
+2026-01-17T22:45:31.157+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:31.158+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:31.158+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key
+2026-01-17T22:45:42.540+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.542+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.543+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.543+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.543+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.544+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.544+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-2] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key, currentCount: 2, limit: 5
+2026-01-17T22:45:42.544+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.545+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.545+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key
+2026-01-17T22:45:42.556+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.558+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.558+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.558+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.558+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.559+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.559+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-4] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key, currentCount: 3, limit: 5
+2026-01-17T22:45:42.559+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.560+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.560+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key
+2026-01-17T22:45:42.571+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.572+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.572+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.573+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.573+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.573+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.573+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-6] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key, currentCount: 4, limit: 5
+2026-01-17T22:45:42.573+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.574+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.574+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key
+2026-01-17T22:45:42.585+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.586+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.587+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.587+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.587+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.588+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.588+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-8] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key, currentCount: 5, limit: 5
+2026-01-17T22:45:42.588+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.598+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.599+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key
+2026-01-17T22:45:42.609+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.610+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.610+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.611+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.611+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.612+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.612+08:00  INFO 2113 --- [rate-limiter-service] [io-8080-exec-10] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key, currentCount: 6, limit: 5
+2026-01-17T22:45:42.612+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:45:42.612+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:45:42.613+08:00  INFO 2113 --- [rate-limiter-service] [io-8080-exec-10] c.e.demo.controller.RateLimitController  : Request blocked for apiKey: test-api-key - Rate limit exceeded
+2026-01-17T22:45:42.702+08:00 DEBUG 2113 --- [rate-limiter-service] [       Thread-2] com.example.demo.mq.MessageProducer      : Sent rate limit event for apiKey: test-api-key - SEND_OK
+Hibernate: 
+    select
+        al1_0.api_key,
+        al1_0.created_at,
+        al1_0.limit_count,
+        al1_0.updated_at,
+        al1_0.window_seconds 
+    from
+        api_limits al1_0 
+    where
+        al1_0.api_key=?
+2026-01-17T22:46:04.195+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:04.199+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+Hibernate: 
+    insert 
+    into
+        api_limits
+        (created_at, limit_count, updated_at, window_seconds, api_key) 
+    values
+        (?, ?, ?, ?, ?)
+2026-01-17T22:46:04.220+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-2] c.e.demo.controller.RateLimitController  : Created rate limit for apiKey: test-api-key-2
+2026-01-17T22:46:04.257+08:00 DEBUG 2113 --- [rate-limiter-service] [       Thread-3] com.example.demo.mq.MessageProducer      : Sent rate limit event for apiKey: test-api-key-2 - SEND_OK
+2026-01-17T22:46:15.071+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.075+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.076+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.077+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.077+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.078+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.078+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-4] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-2, currentCount: 1, limit: 3
+2026-01-17T22:46:15.078+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.079+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.079+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-2
+2026-01-17T22:46:15.092+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.093+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.094+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.095+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.095+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.096+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.096+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-6] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-2, currentCount: 2, limit: 3
+2026-01-17T22:46:15.096+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.097+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.097+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-2
+2026-01-17T22:46:15.194+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.195+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.197+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.198+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.199+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.202+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.203+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-8] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-2, currentCount: 3, limit: 3
+2026-01-17T22:46:15.203+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.205+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.206+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-2
+2026-01-17T22:46:15.354+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.364+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.364+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.366+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.367+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.369+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.369+08:00  INFO 2113 --- [rate-limiter-service] [io-8080-exec-10] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-2, currentCount: 4, limit: 3
+2026-01-17T22:46:15.369+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:15.371+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:15.374+08:00  INFO 2113 --- [rate-limiter-service] [io-8080-exec-10] c.e.demo.controller.RateLimitController  : Request blocked for apiKey: test-api-key-2 - Rate limit exceeded
+2026-01-17T22:46:15.414+08:00 DEBUG 2113 --- [rate-limiter-service] [       Thread-4] com.example.demo.mq.MessageProducer      : Sent rate limit event for apiKey: test-api-key-2 - SEND_OK
+2026-01-17T22:46:57.818+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-3] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:57.825+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-3] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+Hibernate: 
+    select
+        al1_0.api_key,
+        al1_0.created_at,
+        al1_0.limit_count,
+        al1_0.updated_at,
+        al1_0.window_seconds 
+    from
+        api_limits al1_0 
+    where
+        al1_0.api_key=?
+2026-01-17T22:46:57.995+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-3] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:57.998+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-3] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:57.999+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-3] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:58.002+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-3] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:46:58.002+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-3] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:46:58.004+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-3] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:02.798+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:02.802+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:02.804+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:02.806+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:02.806+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:02.808+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:02.808+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-4] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 1, limit: 5
+2026-01-17T22:47:02.808+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:02.809+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:02.809+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-4] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-123
+2026-01-17T22:47:03.504+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-5] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:03.509+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-5] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:03.510+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-5] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:03.512+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-5] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:03.513+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-5] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:03.515+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-5] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:03.515+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-5] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 2, limit: 5
+2026-01-17T22:47:03.515+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-5] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:03.517+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-5] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:03.517+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-5] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-123
+2026-01-17T22:47:04.092+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:04.095+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:04.095+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:04.097+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:04.097+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:04.100+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:04.100+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-6] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 3, limit: 5
+2026-01-17T22:47:04.100+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:04.103+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:04.103+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-123
+2026-01-17T22:47:04.642+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:04.646+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:04.648+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:04.651+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:04.651+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:04.654+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:04.654+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-7] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 4, limit: 5
+2026-01-17T22:47:04.655+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:04.656+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:04.657+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-123
+2026-01-17T22:47:05.298+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:05.301+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:05.302+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:05.304+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:05.305+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:05.308+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:05.308+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-8] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 5, limit: 5
+2026-01-17T22:47:05.309+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:05.311+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:05.311+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-123
+2026-01-17T22:47:05.830+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:05.834+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:05.837+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:05.839+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:05.840+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:05.842+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:05.842+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-9] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 6, limit: 5
+2026-01-17T22:47:05.842+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:05.843+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:05.844+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-9] c.e.demo.controller.RateLimitController  : Request blocked for apiKey: test-api-key-123 - Rate limit exceeded
+2026-01-17T22:47:05.862+08:00 DEBUG 2113 --- [rate-limiter-service] [       Thread-5] com.example.demo.mq.MessageProducer      : Sent rate limit event for apiKey: test-api-key-123 - SEND_OK
+2026-01-17T22:47:07.146+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:07.147+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:07.148+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:07.150+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:07.151+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:07.152+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:07.152+08:00  INFO 2113 --- [rate-limiter-service] [io-8080-exec-10] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 7, limit: 5
+2026-01-17T22:47:07.153+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:07.154+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:07.154+08:00  INFO 2113 --- [rate-limiter-service] [io-8080-exec-10] c.e.demo.controller.RateLimitController  : Request blocked for apiKey: test-api-key-123 - Rate limit exceeded
+2026-01-17T22:47:07.159+08:00 DEBUG 2113 --- [rate-limiter-service] [       Thread-6] com.example.demo.mq.MessageProducer      : Sent rate limit event for apiKey: test-api-key-123 - SEND_OK
+2026-01-17T22:47:09.089+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:09.093+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:09.094+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:09.096+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:09.096+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:09.098+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:09.098+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-1] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 8, limit: 5
+2026-01-17T22:47:09.098+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:09.100+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:09.101+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-1] c.e.demo.controller.RateLimitController  : Request blocked for apiKey: test-api-key-123 - Rate limit exceeded
+2026-01-17T22:47:09.116+08:00 DEBUG 2113 --- [rate-limiter-service] [       Thread-7] com.example.demo.mq.MessageProducer      : Sent rate limit event for apiKey: test-api-key-123 - SEND_OK
+Hibernate: 
+    select
+        al1_0.api_key 
+    from
+        api_limits al1_0 
+    where
+        al1_0.api_key=? 
+    limit
+        ?
+Hibernate: 
+    select
+        al1_0.api_key,
+        al1_0.created_at,
+        al1_0.limit_count,
+        al1_0.updated_at,
+        al1_0.window_seconds 
+    from
+        api_limits al1_0 
+    where
+        al1_0.api_key=?
+2026-01-17T22:47:44.389+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:44.393+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:47:44.394+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:44.395+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+Hibernate: 
+    delete 
+    from
+        api_limits 
+    where
+        api_key=?
+2026-01-17T22:47:44.413+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-2] c.e.demo.controller.RateLimitController  : Removed rate limit for apiKey: test-api-key-123
+2026-01-17T22:47:44.415+08:00 DEBUG 2113 --- [rate-limiter-service] [       Thread-8] com.example.demo.mq.MessageProducer      : Sent rate limit event for apiKey: test-api-key-123 - SEND_OK
+2026-01-17T22:47:53.790+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-3] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:47:53.798+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-3] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+Hibernate: 
+    select
+        al1_0.api_key,
+        al1_0.created_at,
+        al1_0.limit_count,
+        al1_0.updated_at,
+        al1_0.window_seconds 
+    from
+        api_limits al1_0 
+    where
+        al1_0.api_key=?
+2026-01-17T22:47:53.810+08:00 ERROR 2113 --- [rate-limiter-service] [nio-8080-exec-3] c.example.demo.service.RateLimitService  : Error getting usage for apiKey: test-api-key-123
+
+java.lang.RuntimeException: API key not found
+	at com.example.demo.service.RateLimitService.getUsage(RateLimitService.java:112) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:724) ~[spring-aop-6.2.8.jar:6.2.8]
+	at com.example.demo.service.RateLimitService$$SpringCGLIB$$0.getUsage(<generated>) ~[classes/:na]
+	at com.example.demo.controller.RateLimitController.getUsage(RateLimitController.java:60) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2026-01-17T22:47:53.822+08:00 ERROR 2113 --- [rate-limiter-service] [nio-8080-exec-3] c.e.demo.controller.RateLimitController  : Error getting usage for apiKey: test-api-key-123
+
+java.lang.RuntimeException: Failed to get usage information
+	at com.example.demo.service.RateLimitService.getUsage(RateLimitService.java:132) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:724) ~[spring-aop-6.2.8.jar:6.2.8]
+	at com.example.demo.service.RateLimitService$$SpringCGLIB$$0.getUsage(<generated>) ~[classes/:na]
+	at com.example.demo.controller.RateLimitController.getUsage(RateLimitController.java:60) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+Hibernate: 
+    select
+        al1_0.api_key,
+        al1_0.created_at,
+        al1_0.limit_count,
+        al1_0.updated_at,
+        al1_0.window_seconds 
+    from
+        api_limits al1_0 
+    where
+        al1_0.api_key=?
+2026-01-17T22:48:05.514+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-5] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:05.518+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-5] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+Hibernate: 
+    insert 
+    into
+        api_limits
+        (created_at, limit_count, updated_at, window_seconds, api_key) 
+    values
+        (?, ?, ?, ?, ?)
+2026-01-17T22:48:05.534+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-5] c.e.demo.controller.RateLimitController  : Created rate limit for apiKey: test-api-key-123
+2026-01-17T22:48:05.555+08:00 DEBUG 2113 --- [rate-limiter-service] [       Thread-9] com.example.demo.mq.MessageProducer      : Sent rate limit event for apiKey: test-api-key-123 - SEND_OK
+2026-01-17T22:48:08.520+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:08.524+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:08.525+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:08.527+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:08.528+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:08.530+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:08.530+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-6] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 1, limit: 5
+2026-01-17T22:48:08.532+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:08.535+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:08.536+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-6] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-123
+2026-01-17T22:48:13.805+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:13.814+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:13.815+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:13.816+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:13.816+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:13.820+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:13.820+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-7] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 2, limit: 5
+2026-01-17T22:48:13.820+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:13.821+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:13.821+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-7] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-123
+2026-01-17T22:48:14.405+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:14.409+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:14.410+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:14.413+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:14.413+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:14.415+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:14.416+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-8] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 3, limit: 5
+2026-01-17T22:48:14.416+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:14.417+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:14.417+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-8] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-123
+2026-01-17T22:48:15.486+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:15.489+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:15.490+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:15.491+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:15.491+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:15.493+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:15.494+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-9] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 4, limit: 5
+2026-01-17T22:48:15.494+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:15.495+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:15.496+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-9] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-123
+2026-01-17T22:48:15.993+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:15.998+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:15.999+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:16.000+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:16.000+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:16.002+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:16.002+08:00  INFO 2113 --- [rate-limiter-service] [io-8080-exec-10] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 5, limit: 5
+2026-01-17T22:48:16.003+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:16.004+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:16.004+08:00 DEBUG 2113 --- [rate-limiter-service] [io-8080-exec-10] c.e.demo.controller.RateLimitController  : Request allowed for apiKey: test-api-key-123
+2026-01-17T22:48:16.520+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:16.523+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:16.524+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:16.527+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:16.527+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:16.529+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:16.530+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-1] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 6, limit: 5
+2026-01-17T22:48:16.530+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:16.531+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-1] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:16.532+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-1] c.e.demo.controller.RateLimitController  : Request blocked for apiKey: test-api-key-123 - Rate limit exceeded
+2026-01-17T22:48:16.555+08:00 DEBUG 2113 --- [rate-limiter-service] [      Thread-10] com.example.demo.mq.MessageProducer      : Sent rate limit event for apiKey: test-api-key-123 - SEND_OK
+2026-01-17T22:48:17.102+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:17.105+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:17.106+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:17.107+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:17.107+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:17.109+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:17.109+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-2] c.example.demo.service.RateLimitService  : Rate limit check for apiKey: test-api-key-123, currentCount: 7, limit: 5
+2026-01-17T22:48:17.109+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Fetching Redis Connection from RedisConnectionFactory
+2026-01-17T22:48:17.111+08:00 DEBUG 2113 --- [rate-limiter-service] [nio-8080-exec-2] o.s.d.redis.core.RedisConnectionUtils    : Closing Redis Connection
+2026-01-17T22:48:17.111+08:00  INFO 2113 --- [rate-limiter-service] [nio-8080-exec-2] c.e.demo.controller.RateLimitController  : Request blocked for apiKey: test-api-key-123 - Rate limit exceeded
+2026-01-17T22:48:17.123+08:00 DEBUG 2113 --- [rate-limiter-service] [      Thread-11] com.example.demo.mq.MessageProducer      : Sent rate limit event for apiKey: test-api-key-123 - SEND_OK
+2026-01-17T22:48:34.418+08:00 DEBUG 2113 --- [rate-limiter-service] [ionShutdownHook] o.s.d.r.l.RedisMessageListenerContainer  : Stopped RedisMessageListenerContainer
+2026-01-17T22:48:34.419+08:00  INFO 2113 --- [rate-limiter-service] [ionShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-17T22:48:34.423+08:00  INFO 2113 --- [rate-limiter-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-01-17T22:48:34.479+08:00  INFO 2113 --- [rate-limiter-service] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-17T22:48:34.482+08:00  INFO 2113 --- [rate-limiter-service] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-01-17T22:48:34.485+08:00  INFO 2113 --- [rate-limiter-service] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

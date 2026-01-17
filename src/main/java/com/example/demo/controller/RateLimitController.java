@@ -7,32 +7,28 @@ import com.example.demo.model.dto.LimitsResponse;
 import com.example.demo.model.dto.UsageResponse;
 import com.example.demo.service.RateLimitService;
 import jakarta.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping("/")
+@RequiredArgsConstructor
 public class RateLimitController {
     
-    private static final Logger logger = LoggerFactory.getLogger(RateLimitController.class);
-    
     private final RateLimitService rateLimitService;
-    
-    public RateLimitController(RateLimitService rateLimitService) {
-        this.rateLimitService = rateLimitService;
-    }
-    
+
     @PostMapping("/limits")
     public ResponseEntity<?> createLimit(@Valid @RequestBody CreateLimitRequest request) {
         try {
             ApiLimit apiLimit = rateLimitService.createLimit(request);
-            logger.info("Created rate limit for apiKey: {}", request.getApiKey());
+            log.info("Created rate limit for apiKey: {}", request.getApiKey());
             return ResponseEntity.status(HttpStatus.CREATED).body(apiLimit);
         } catch (Exception e) {
-            logger.error("Error creating limit for apiKey: {}", request.getApiKey(), e);
+            log.error("Error creating limit for apiKey: {}", request.getApiKey(), e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body("Failed to create rate limit: " + e.getMessage());
         }
@@ -44,15 +40,15 @@ public class RateLimitController {
             CheckResponse response = rateLimitService.checkApiAccess(apiKey);
             
             if (!response.isAllowed()) {
-                logger.info("Request blocked for apiKey: {} - {}", apiKey, response.getMessage());
+                log.info("Request blocked for apiKey: {} - {}", apiKey, response.getMessage());
                 return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(response);
             }
             
-            logger.debug("Request allowed for apiKey: {}", apiKey);
+            log.debug("Request allowed for apiKey: {}", apiKey);
             return ResponseEntity.ok(response);
             
         } catch (Exception e) {
-            logger.error("Error checking API access for apiKey: {}", apiKey, e);
+            log.error("Error checking API access for apiKey: {}", apiKey, e);
             CheckResponse errorResponse = new CheckResponse(true, "Rate limiting service error - request allowed");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
@@ -64,7 +60,7 @@ public class RateLimitController {
             UsageResponse response = rateLimitService.getUsage(apiKey);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            logger.error("Error getting usage for apiKey: {}", apiKey, e);
+            log.error("Error getting usage for apiKey: {}", apiKey, e);
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body("Failed to get usage information: " + e.getMessage());
         }
@@ -74,10 +70,10 @@ public class RateLimitController {
     public ResponseEntity<?> removeLimit(@PathVariable String apiKey) {
         try {
             rateLimitService.removeLimit(apiKey);
-            logger.info("Removed rate limit for apiKey: {}", apiKey);
+            log.info("Removed rate limit for apiKey: {}", apiKey);
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
-            logger.error("Error removing limit for apiKey: {}", apiKey, e);
+            log.error("Error removing limit for apiKey: {}", apiKey, e);
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body("Failed to remove rate limit: " + e.getMessage());
         }
@@ -95,7 +91,7 @@ public class RateLimitController {
             LimitsResponse response = rateLimitService.getAllLimits(page, size);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            logger.error("Error getting all limits", e);
+            log.error("Error getting all limits", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body("Failed to get limits: " + e.getMessage());
         }

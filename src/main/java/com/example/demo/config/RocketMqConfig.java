@@ -19,8 +19,9 @@ public class RocketMqConfig {
         DefaultMQProducer producer = new DefaultMQProducer();
         producer.setProducerGroup(producerGroup);
         producer.setNamesrvAddr(nameServer);
-        producer.setSendMsgTimeout(3000);
-        producer.setRetryTimesWhenSendFailed(2);
+        producer.setSendMsgTimeout(10000); // 增加超時時間到10秒
+        producer.setRetryTimesWhenSendFailed(0); // 不重試，快速失敗
+        producer.setMaxMessageSize(1024 * 4); // 設置最大消息大小
         
         try {
             producer.start();

@@ -28,6 +28,21 @@ public class RedisConfig {
         return template;
     }
     
+    @Bean("counterRedisTemplate")
+    public RedisTemplate<String, String> counterRedisTemplate(RedisConnectionFactory connectionFactory) {
+        RedisTemplate<String, String> template = new RedisTemplate<>();
+        template.setConnectionFactory(connectionFactory);
+        
+        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
+        template.setKeySerializer(stringRedisSerializer);
+        template.setValueSerializer(stringRedisSerializer);
+        template.setHashKeySerializer(stringRedisSerializer);
+        template.setHashValueSerializer(stringRedisSerializer);
+        
+        template.afterPropertiesSet();
+        return template;
+    }
+    
     @Bean
     public DefaultRedisScript<Long> rateLimitScript() {
         DefaultRedisScript<Long> script = new DefaultRedisScript<>();
@@ -44,11 +59,8 @@ public class RedisConfig {
                 return 1
             else
                 local count = tonumber(current)
-                if count < limit then
-                    return redis.call('INCR', key)
-                else
-                    return count
-                end
+                local new_count = redis.call('INCR', key)
+                return new_count
             end
             """
         );
