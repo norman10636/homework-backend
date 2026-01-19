@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.common.RedisKey;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -43,8 +44,8 @@ class RedisServiceTest {
     private RedisService redisService;
 
     private static final String TEST_API_KEY = "test-api-key";
-    private static final String CONFIG_KEY = "cache:config:" + TEST_API_KEY;
-    private static final String RATE_LIMIT_KEY = "rate:limit:cnt:" + TEST_API_KEY;
+    private static final String CONFIG_KEY = RedisKey.configCache(TEST_API_KEY);
+    private static final String RATE_LIMIT_KEY = RedisKey.rateLimitCounter(TEST_API_KEY);
 
     @BeforeEach
     void setUp() {

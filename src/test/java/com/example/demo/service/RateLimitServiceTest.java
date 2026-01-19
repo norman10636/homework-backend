@@ -6,6 +6,7 @@ import com.example.demo.model.dto.CreateLimitRequest;
 import com.example.demo.model.dto.LimitsResponse;
 import com.example.demo.model.dto.UsageResponse;
 import com.example.demo.mq.MessageProducer;
+import com.example.demo.mq.RateLimitEventType;
 import com.example.demo.repository.ApiLimitRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -82,7 +83,7 @@ class RateLimitServiceTest {
         
         then(apiLimitRepository).should().save(any(ApiLimit.class));
         then(redisService).should().cacheApiLimitConfig("test-api-key", configJson);
-        then(messageProducer).should().sendConfigChangeEvent("test-api-key", "created");
+        then(messageProducer).should().sendConfigChangeEvent("test-api-key", RateLimitEventType.ConfigAction.CREATED);
     }
     
     @Test
@@ -98,7 +99,7 @@ class RateLimitServiceTest {
         // Then
         assertThat(result).isNotNull();
         then(apiLimitRepository).should().save(any(ApiLimit.class));
-        then(messageProducer).should().sendConfigChangeEvent("test-api-key", "created");
+        then(messageProducer).should().sendConfigChangeEvent("test-api-key", RateLimitEventType.ConfigAction.CREATED);
     }
     
     @Test
@@ -282,7 +283,7 @@ class RateLimitServiceTest {
         // Then
         then(apiLimitRepository).should().deleteByApiKey("test-api-key");
         then(redisService).should().evictCache("test-api-key");
-        then(messageProducer).should().sendConfigChangeEvent("test-api-key", "deleted");
+        then(messageProducer).should().sendConfigChangeEvent("test-api-key", RateLimitEventType.ConfigAction.DELETED);
     }
     
     @Test

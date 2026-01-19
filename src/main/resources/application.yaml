@@ -43,3 +43,10 @@ rocketmq:
     group: rate-limiter-producer-group
     send-message-timeout: 3000
     retry-times-when-send-failed: 2
+
+# 自定義配置
+app:
+  rocketmq:
+    topic: rate-limit-events
+    consumer:
+      group: rate-limiter-consumer-group

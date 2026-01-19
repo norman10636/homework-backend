@@ -6,6 +6,7 @@ import com.example.demo.model.dto.CreateLimitRequest;
 import com.example.demo.model.dto.LimitsResponse;
 import com.example.demo.model.dto.UsageResponse;
 import com.example.demo.mq.MessageProducer;
+import com.example.demo.mq.RateLimitEventType;
 import com.example.demo.repository.ApiLimitRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,7 +48,7 @@ public class RateLimitService {
         }
         
         // Send async event
-        messageProducer.sendConfigChangeEvent(request.getApiKey(), "created");
+        messageProducer.sendConfigChangeEvent(request.getApiKey(), RateLimitEventType.ConfigAction.CREATED);
         
         return savedLimit;
     }
@@ -143,7 +144,7 @@ public class RateLimitService {
         redisService.evictCache(apiKey);
         
         // Send async event
-        messageProducer.sendConfigChangeEvent(apiKey, "deleted");
+        messageProducer.sendConfigChangeEvent(apiKey, RateLimitEventType.ConfigAction.DELETED);
     }
     
     public LimitsResponse getAllLimits(int page, int size) {
