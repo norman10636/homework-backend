@@ -26,9 +26,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class RateLimitService {
-    
-    private static final boolean FAIL_OPEN = true; // Fail-open strategy
-    
+
     private final ApiLimitRepository apiLimitRepository;
     private final RedisService redisService;
     private final ObjectMapper objectMapper;
@@ -61,14 +59,10 @@ public class RateLimitService {
                 return new CheckResponse(true, "No rate limit configured for this API key");
             }
             
-            // Execute rate limiting with atomic Lua script
+            // Execute rate limiting with atomic Lua script (Fail-open strategy)
             if (!redisService.isRedisAvailable()) {
-                if (FAIL_OPEN) {
-                    log.warn("Redis unavailable, allowing request for apiKey: {}", apiKey);
-                    return new CheckResponse(true, "Rate limiting unavailable - request allowed");
-                } else {
-                    return new CheckResponse(false, "Rate limiting service unavailable");
-                }
+                log.warn("Redis unavailable, allowing request for apiKey: {}", apiKey);
+                return new CheckResponse(true, "Rate limiting unavailable - request allowed");
             }
             
             Long currentCount = redisService.executeRateLimit(apiKey, config.getWindowSeconds(), config.getLimitCount());
@@ -76,12 +70,8 @@ public class RateLimitService {
                 apiKey, currentCount, config.getLimitCount());
                 
             if (currentCount == null) {
-                if (FAIL_OPEN) {
-                    log.warn("Failed to execute rate limit, allowing request for apiKey: {}", apiKey);
-                    return new CheckResponse(true, "Rate limiting failed - request allowed");
-                } else {
-                    return new CheckResponse(false, "Rate limiting failed");
-                }
+                log.warn("Failed to execute rate limit, allowing request for apiKey: {}", apiKey);
+                return new CheckResponse(true, "Rate limiting failed - request allowed");
             }
             
             Long ttl = redisService.getTtl(apiKey);
@@ -98,11 +88,7 @@ public class RateLimitService {
             
         } catch (Exception e) {
             log.error("Error checking API access for apiKey: {}", apiKey, e);
-            if (FAIL_OPEN) {
-                return new CheckResponse(true, "Rate limiting error - request allowed");
-            } else {
-                return new CheckResponse(false, "Rate limiting service error");
-            }
+            return new CheckResponse(true, "Rate limiting error - request allowed");
         }
     }
     

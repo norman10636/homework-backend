@@ -13,10 +13,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Slf4j
 @Service
@@ -34,20 +31,7 @@ public class RateLimitEventConsumer implements RocketMQListener<MessageExt> {
     private final ObjectMapper objectMapper;
 
     // Redis 去重配置
-    private static final long DEDUP_EXPIRE_SECONDS = 86400; // 24 小時
-
-    // 統計指標
-    private final AtomicLong totalBlockedCount = new AtomicLong(0);
-    private final AtomicLong totalConfigChangeCount = new AtomicLong(0);
-    private final AtomicLong totalConsumedCount = new AtomicLong(0);
-    private final AtomicLong totalDuplicateCount = new AtomicLong(0);
-
-    // 用於告警檢測：記錄每個 apiKey 的 blocked 次數
-    private final Map<String, BlockedCounter> blockedCounters = new ConcurrentHashMap<>();
-
-    // 告警閾值：1 分鐘內超過 100 次 blocked 觸發告警
-    private static final int ALERT_THRESHOLD = 100;
-    private static final long ALERT_WINDOW_MS = 60_000;
+    private static final long DEDUP_EXPIRE_SECONDS = 3600; // 1 小時
 
     @Override
     public void onMessage(MessageExt messageExt) {
@@ -56,7 +40,6 @@ public class RateLimitEventConsumer implements RocketMQListener<MessageExt> {
         // Redis 去重檢查，校驗重複消費
         if (!tryAcquireDedupLock(msgId)) {
             log.debug("Duplicate message ignored: msgId={}", msgId);
-            totalDuplicateCount.incrementAndGet();
             return;
         }
 
@@ -70,7 +53,6 @@ public class RateLimitEventConsumer implements RocketMQListener<MessageExt> {
 
             // 處理訊息
             processEvent(message);
-            totalConsumedCount.incrementAndGet();
 
         } catch (Exception e) {
             log.error("Failed to process message: msgId={}, error={}", msgId, e.getMessage(), e);
@@ -122,92 +104,18 @@ public class RateLimitEventConsumer implements RocketMQListener<MessageExt> {
     }
 
     private void handleBlockedEvent(RateLimitEventMessage event) {
-        totalBlockedCount.incrementAndGet();
-
-        // 記錄審計日誌
         log.info("[AUDIT] BLOCKED - apiKey={}, currentCount={}, limitCount={}, windowTtl={}, message={}",
             event.getApiKey(),
             event.getCurrentCount(),
             event.getLimitCount(),
             event.getWindowTtl(),
             event.getMessage());
-
-        // 告警檢測
-        checkAndAlert(event.getApiKey());
     }
 
     private void handleConfigChangeEvent(RateLimitEventMessage event) {
-        totalConfigChangeCount.incrementAndGet();
-
-        // 記錄審計日誌
         log.info("[AUDIT] CONFIG_CHANGE - apiKey={}, message={}, timestamp={}",
             event.getApiKey(),
             event.getMessage(),
             event.getTimestamp());
-    }
-
-    /**
-     * 檢測是否需要觸發告警
-     */
-    private void checkAndAlert(String apiKey) {
-        long now = System.currentTimeMillis();
-
-        BlockedCounter counter = blockedCounters.compute(apiKey, (key, existing) -> {
-            if (existing == null || now - existing.windowStart > ALERT_WINDOW_MS) {
-                return new BlockedCounter(now, 1);
-            } else {
-                existing.count++;
-                return existing;
-            }
-        });
-
-        if (counter.count == ALERT_THRESHOLD) {
-            triggerAlert(apiKey, counter.count);
-        }
-    }
-
-    private void triggerAlert(String apiKey, int count) {
-        // TODO: 可對接外部告警系統（Webhook、SMS、Email 等）
-        log.warn("[ALERT] High rate limit blocked detected! apiKey={}, blockedCount={} in last {} seconds",
-            apiKey, count, ALERT_WINDOW_MS / 1000);
-    }
-
-    // ========== 監控指標 API ==========
-
-    public long getTotalBlockedCount() {
-        return totalBlockedCount.get();
-    }
-
-    public long getTotalConfigChangeCount() {
-        return totalConfigChangeCount.get();
-    }
-
-    public long getTotalConsumedCount() {
-        return totalConsumedCount.get();
-    }
-
-    public long getTotalDuplicateCount() {
-        return totalDuplicateCount.get();
-    }
-
-    public Map<String, Integer> getBlockedCountsByApiKey() {
-        Map<String, Integer> result = new ConcurrentHashMap<>();
-        long now = System.currentTimeMillis();
-        blockedCounters.forEach((apiKey, counter) -> {
-            if (now - counter.windowStart <= ALERT_WINDOW_MS) {
-                result.put(apiKey, counter.count);
-            }
-        });
-        return result;
-    }
-
-    private static class BlockedCounter {
-        long windowStart;
-        int count;
-
-        BlockedCounter(long windowStart, int count) {
-            this.windowStart = windowStart;
-            this.count = count;
-        }
     }
 }

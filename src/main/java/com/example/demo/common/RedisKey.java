@@ -38,17 +38,4 @@ public final class RedisKey {
         return MQ_DEDUP_PREFIX + msgId;
     }
 
-    // ==================== Prefix Getters (for testing) ====================
-
-    public static String getConfigCachePrefix() {
-        return CONFIG_CACHE_PREFIX;
-    }
-
-    public static String getRateLimitPrefix() {
-        return RATE_LIMIT_PREFIX;
-    }
-
-    public static String getMqDedupPrefix() {
-        return MQ_DEDUP_PREFIX;
-    }
 }
