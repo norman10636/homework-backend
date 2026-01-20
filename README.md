@@ -108,9 +108,29 @@ You may edit init.sql to create required tables automatically.
 
 🚀 Getting Started
 
-To run the application:
+### Quick Start (Recommended)
 
-./mvn spring-boot:run
+The easiest way to start the project is by using the provided `start.sh` script:
+
+```bash
+chmod +x start.sh
+./start.sh
+```
+
+This script will automatically:
+1. Start all infrastructure services (MySQL, Redis, RocketMQ) via Docker Compose
+2. Wait for MySQL and Redis to be ready
+3. Display service status
+4. Start the Spring Boot application
+
+### Manual Start
+
+To run the application manually:
+
+```bash
+docker-compose up -d
+./mvnw spring-boot:run
+```
 
 Make sure to update your application.yml with the proper connections for:
 - spring.datasource.url
